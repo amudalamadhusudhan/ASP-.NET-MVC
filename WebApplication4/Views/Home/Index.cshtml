@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebApplication4.student>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.studentname)
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.studentname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.studentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.studentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.studentId })
+        </td>
+    </tr>
+}
+
+</table>
