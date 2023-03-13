@@ -99,5 +99,6 @@ namespace Assignment.Controllers
             var data = _context1.Employees.Where(x => x.EmployeeId == id).FirstOrDefault();
             return View(data);
         }
+
     }
 }
