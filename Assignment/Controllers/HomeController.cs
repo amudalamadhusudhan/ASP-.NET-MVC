@@ -99,6 +99,13 @@ namespace Assignment.Controllers
             var data = _context1.Employees.Where(x => x.EmployeeId == id).FirstOrDefault();
             return View(data);
         }
+     
+        [HttpPost]
+        public ActionResult QueryAction(int id)
+        {
+            var data = _context1.Employees.Where(x => x.ManagerId == id).FirstOrDefault();
+            return View(data);
+        }
 
     }
 }

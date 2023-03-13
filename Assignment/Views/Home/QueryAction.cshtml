@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Assignment.Employee>
+
+@{
+    ViewBag.Title = "QueryAction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>QueryAction</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ManagerId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.ManagerId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId })
+        </td>
+    </tr>
+}
+
+</table>
