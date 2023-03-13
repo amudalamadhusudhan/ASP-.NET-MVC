@@ -12,7 +12,7 @@ namespace Assignment.Controllers
         MVCcrudDB1Context _context1 = new MVCcrudDB1Context();
         public ActionResult Index()
         {
-            var elist = _context1.Employees.ToList();
+       var elist = _context1.Employees.OrderBy(s => s.Employeename).ToList();
             return View(elist);
         }
         [HttpPost]
@@ -99,13 +99,21 @@ namespace Assignment.Controllers
             var data = _context1.Employees.Where(x => x.EmployeeId == id).FirstOrDefault();
             return View(data);
         }
-     
-        [HttpPost]
-        public ActionResult QueryAction(int id)
+        [HttpGet]
+        public ActionResult manager()
         {
-            var data = _context1.Employees.Where(x => x.ManagerId == id).FirstOrDefault();
-            return View(data);
+            return View();
         }
 
+        [HttpPost]
+        public ActionResult manager(Employee model)
+        {
+            //var data = _context1.Employees.OrderBy(x => x.Employeename).ToList();
+            var data = _context1.Employees.Select(x => x.ManagerId ).ToList();
+       
+      
+            return View(data);
+        }
+       
     }
 }

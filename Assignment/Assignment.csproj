@@ -225,7 +225,8 @@
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
-    <Content Include="Views\Home\QueryAction.cshtml" />
+    <Content Include="Views\Home\.cshtml" />
+    <Content Include="Views\Home\manager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

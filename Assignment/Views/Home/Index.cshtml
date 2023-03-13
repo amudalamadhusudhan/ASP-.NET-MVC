@@ -10,6 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -63,6 +64,4 @@
     }
 
 </table>
-<div class="btn-group btn-group-sm">
-    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("QueryAction", "ControllerName")'">Managerid Query</button>
-</div>
+<p>@Html.ActionLink("show managers", "manager", null, new { @class = "btn btn-warning" })</p>
