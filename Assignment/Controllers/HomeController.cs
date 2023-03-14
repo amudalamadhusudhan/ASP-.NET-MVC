@@ -12,7 +12,7 @@ namespace Assignment.Controllers
         MVCcrudDB1Context _context1 = new MVCcrudDB1Context();
         public ActionResult Index()
         {
-       var elist = _context1.Employees.OrderBy(s => s.Employeename).ToList();
+            var elist = _context1.Employees.OrderBy(s => s.Employeename).ToList();
             return View(elist);
         }
         [HttpPost]
@@ -21,8 +21,8 @@ namespace Assignment.Controllers
             ViewBag.Id = model.EmployeeId;
             ViewBag.Name = model.Employeename;
             ViewBag.DepT = model.Employeedepartment_;
-            ViewBag.Salary=model.Salary;
-            ViewBag.Designation=model.Designation;
+            ViewBag.Salary = model.Salary;
+            ViewBag.Designation = model.Designation;
             ViewBag.Managerid = model.ManagerId;
             return View("Index");
         }
@@ -59,15 +59,15 @@ namespace Assignment.Controllers
         [HttpPost]
         public ActionResult Edit(Employee model)
         {
-             var data = _context1.Employees.Where(x => x.EmployeeId == model.EmployeeId).FirstOrDefault();
+            var data = _context1.Employees.Where(x => x.EmployeeId == model.EmployeeId).FirstOrDefault();
             if (data != null)
             {
-                data.EmployeeId=model.EmployeeId;   
+                data.EmployeeId = model.EmployeeId;
                 data.Employeename = model.Employeename;
                 data.Employeedepartment_ = model.Employeedepartment_;
                 data.Salary = model.Salary;
                 data.Designation = model.Designation;
-                data.ManagerId=model.ManagerId;
+                data.ManagerId = model.ManagerId;
                 TempData["Messages"] = "Student list created successfully.";
                 _context1.SaveChanges();
             }
@@ -85,12 +85,12 @@ namespace Assignment.Controllers
         public ActionResult Delete(Employee model)
         {
             var data = _context1.Employees.Where(x => x.EmployeeId == model.EmployeeId).FirstOrDefault();
-            
-                _context1.Employees.Remove(data);
-                _context1.SaveChanges();
-                return RedirectToAction("Index");
-            
-           
+
+            _context1.Employees.Remove(data);
+            _context1.SaveChanges();
+            return RedirectToAction("Index");
+
+
         }
         [HttpGet]
         public ActionResult Details(int id)
@@ -102,18 +102,14 @@ namespace Assignment.Controllers
         [HttpGet]
         public ActionResult manager()
         {
-            return View();
-        }
+            var data = _context1.Employees.Where(x => x.Designation=="Manager").ToList();
+           // var data = _context1.Employees.Select(x => x.).ToList();
+         //var data = _context1.Employees.Select(s => new { Name = s.ManagerId });
 
-        [HttpPost]
-        public ActionResult manager(Employee model)
-        {
-            //var data = _context1.Employees.OrderBy(x => x.Employeename).ToList();
-            var data = _context1.Employees.Select(x => x.ManagerId ).ToList();
-       
-      
+
             return View(data);
         }
+    
        
     }
 }
