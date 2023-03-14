@@ -9,3 +9,5 @@ Acceptance criteria-
 6. Add necessary validation messages, success messages and error messages wherever applicable.
 7. Create a new local DB table to save employee details.8.
 8. Create a button to display employees who are managers only.
+![image](https://user-images.githubusercontent.com/105910992/224923148-31d4e63b-2132-4680-b547-f268b3e28432.png)
+![image](https://user-images.githubusercontent.com/105910992/224923315-ba7902fd-a990-4397-ae59-f82e1bfb9203.png)
